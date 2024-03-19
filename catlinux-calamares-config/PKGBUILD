@@ -1,5 +1,5 @@
 pkgname=catlinux-calamares-config
-pkgver=1
+pkgver=2
 pkgrel=1
 pkgdesc="Calamares configuration for CatLinux"
 arch=('any')
