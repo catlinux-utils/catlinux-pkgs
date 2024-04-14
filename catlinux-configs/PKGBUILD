@@ -1,6 +1,6 @@
 pkgname=catlinux-configs
 pkgver=2
-pkgrel=4
+pkgrel=5
 pkgdesc="Configs for CatLinux"
 arch=('any')
 url="https://github.com/catlinux-distro/"
