@@ -1,4 +1,5 @@
-pkgname=catlinux-configs
+
+pkgname=catlinux-configs-plasma
 pkgver=2
 pkgrel=5
 pkgdesc="Configs for CatLinux"

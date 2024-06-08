@@ -1,6 +1,6 @@
 pkgname=catlinux-calamares-config
 pkgver=2
-pkgrel=4
+pkgrel=5
 pkgdesc="Calamares configuration for CatLinux"
 arch=('any')
 url="https://github.com/catlinux-distro/"
