@@ -1,0 +1,30 @@
+pkgname=catlinux-microtex-git
+pkgver=1.0
+pkgrel=1
+pkgdesc="MicroTeX from GitHub repository"
+arch=('x86_64')
+url="https://github.com/NanoMichael/MicroTeX"
+license=('MIT')
+depends=('cmake' 'gcc' 'make' 'tinyxml2' 'gtkmm3' 'gtksourceviewmm' 'cairomm')
+makedepends=('git')
+
+source=("${pkgname}::git+${url}#branch=master")
+md5sums=('SKIP')
+
+prepare() {
+    cd "${srcdir}/${pkgname}"
+    git submodule update --init --recursive
+}
+
+build() {
+    mkdir -p "${srcdir}/build"
+    cd "${srcdir}/build"
+    cmake "${srcdir}/${pkgname}"
+    make -j32
+}
+
+package() {
+    mkdir -p "${pkgdir}/usr/local/bin"
+    cp "${srcdir}/build/LaTeX" "${pkgdir}/usr/local/bin/"
+    cp -r "${srcdir}/build/res" "${pkgdir}/usr/local/bin/"
+}

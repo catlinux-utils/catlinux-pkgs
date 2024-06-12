@@ -1,0 +1,22 @@
+pkgname=catlinux-hyprland-config
+pkgver=2
+pkgrel=5
+pkgdesc="Hyprland configuration for CatLinux"
+arch=('any')
+url="https://github.com/catlinux-distro/"
+license=('GPL3')
+makedepends=('git')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${pkgname}::"git+${url}/${pkgname}")
+sha256sums=('SKIP')
+depends=(catlinux-hyprland-audio catlinux-hyprland-backlight catlinux-hyprland-basic catlinux-hyprland-fonts-themes catlinux-hyprland-gnome catlinux-hyprland-gtk catlinux-hyprland-portal catlinux-hyprland-pymyc-aur catlinux-hyprland-python catlinux-hyprland-screencapture catlinux-hyprland-widgets catlinux-ags-git catlinux-microtex-git OneUI4-Icons-end-4-git ttf-rubik ttf-gabarito-git)
+
+package() {
+
+    InternalDir="${srcdir}/${pkgname}"
+    install -d "${pkgdir}/etc/skel/"
+    cp -r "${InternalDir}/.config" "${pkgdir}/etc/skel/"
+    cp -r "${InternalDir}/.local" "${pkgdir}/etc/skel/"
+
+}

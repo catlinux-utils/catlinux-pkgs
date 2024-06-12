@@ -1,0 +1,11 @@
+pkgname=catlinux-hyprland-backlight
+pkgver=1.0
+pkgrel=1
+pkgdesc='CatLinux Hyprland Backlight Dependencies'
+arch=(any)
+license=(None)
+depends=(
+	brightnessctl
+	ddcutil
+)
+

@@ -1,0 +1,27 @@
+pkgname=catlinux-ags-git
+pkgver=1
+pkgrel=1
+pkgdesc="AGS project from GitHub repository"
+arch=('any')
+url="https://github.com/Aylur/ags"
+license=('custom')
+depends=('npm' 'meson')
+makedepends=('git')
+source=("${pkgname}::git+${url}#commit=05e0f23534fa30c1db2a142664ee8f71e38db260")
+md5sums=('SKIP')
+
+prepare() {
+    cd "${srcdir}/${pkgname}"
+    git submodule update --init --recursive
+}
+
+build() {
+    cd "${srcdir}/${pkgname}"
+    npm install
+    meson setup build --reconfigure
+}
+
+package() {
+    cd "${srcdir}/${pkgname}"
+    meson install -C build --destdir="${pkgdir}"
+}
