@@ -1,0 +1,19 @@
+pkgname=catlinux-keyring
+pkgver=20250302
+pkgrel=1
+pkgdesc="CatLinux keyring"
+arch=(any)
+license=('GPL-3.0-or-later')
+install=$pkgname.install
+source=("catlinux.gpg"
+        "catlinux-revoked"
+        "catlinux-trusted"
+        "$install")
+
+sha512sums=('de1d0789c1a1480c40ed6c053779e60ecb61dcd67897a82365833e29e6e1167ee8011f11793424d965c6e49c006798027bc182d48d96501dc380c064d1a0c037'
+            'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e'
+            'fd30e095664b9386ed70e7833cee36b7dce836488d3426fccd440d4df5d4ddd0e1502ffb14112fc324939488768c20f325e42ff164d211b5d9ec1ea1f7001d93'
+            'bd0e983d049358a289a7899f0d1deab3f0dc2c2afecdaf86d8ad6471e9d518bf8fc9f6d6908e36d84d3167d805abe498c14950f04df6cc6049a19da94b890ade')
+package() {
+    install -D -m0644 -t "${pkgdir}"/usr/share/pacman/keyrings/ 'catlinux'{.gpg,-trusted,-revoked}
+}

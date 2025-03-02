@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the destination directory
-destination="$HOME/catlinux-repo/x86_64/"
+destination="$HOME/github/catlinux-repo/x86_64/"
 
 # Loop over all directories in the current directory
 for dir in */; do

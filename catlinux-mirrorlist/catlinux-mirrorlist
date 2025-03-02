@@ -1,0 +1,4 @@
+##CatLinux Repository Mirrorlist 
+
+#Github
+Server = https://github.com/catlinux-utils/catlinux-repo/raw/main/x86_64/

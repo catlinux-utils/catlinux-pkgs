@@ -1,0 +1,13 @@
+pkgname=catlinux-mirrorlist
+pkgver=1
+pkgrel=1
+pkgdesc="CatLinux repository mirrorlist"
+arch=('any')
+license=(GPL-3.0-or-later)
+source=(catlinux-mirrorlist)
+sha512sums=('5cce915fc8be3e78430b8535730b03bde6424f8773c17f6b732eb43126bad21858dbe4de131f8e1c23938f755a6860a3376322631d1d87d097e4b79729e9ee82')
+
+package() {
+ backup=("etc/pacman.d/$pkgname")  # to keep possibly ranked mirrorlist
+ install -Dm644 "$srcdir/$pkgbase" "$pkgdir/etc/pacman.d/$pkgname"
+}
