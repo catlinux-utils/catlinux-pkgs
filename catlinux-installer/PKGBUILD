@@ -1,0 +1,14 @@
+pkgname=catlinux-installer
+pkgver=1.0.0
+pkgrel=3
+pkgdesc="A brief description of your package"
+arch=('x86_64')
+url="https://github.com/catlinux-utils/catlinux-installer"
+license=('GPL')
+depends=('bash' 'util-linux' 'btrfs-progs' 'sed' 'arch-install-scripts')
+source=("git+https://github.com/catlinux-utils/catlinux-installer")
+sha256sums=('SKIP')
+
+package() {
+    install -Dm755 "$srcdir/catlinux-installer/installer.sh" "$pkgdir/usr/bin/catlinux-installer"
+}
